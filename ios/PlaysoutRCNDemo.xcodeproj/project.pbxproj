@@ -3,15 +3,167 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-PlaysoutRCNDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-PlaysoutRCNDemo.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		77AE48DE2EB89CF300C12573 /* FlutterPluginRegistrant.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B02EB89CF200C12573 /* FlutterPluginRegistrant.xcframework */; };
+		77AE48ED2EB89D7B00C12573 /* app_links.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B32EB89CF300C12573 /* app_links.xcframework */; };
+		77AE48EE2EB89D7B00C12573 /* app_links.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B32EB89CF300C12573 /* app_links.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48EF2EB89D7B00C12573 /* App.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489A2EB89CF200C12573 /* App.xcframework */; };
+		77AE48F02EB89D7B00C12573 /* App.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489A2EB89CF200C12573 /* App.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48F12EB89D7B00C12573 /* audioplayers_darwin.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489D2EB89CF200C12573 /* audioplayers_darwin.xcframework */; };
+		77AE48F22EB89D7B00C12573 /* audioplayers_darwin.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489D2EB89CF200C12573 /* audioplayers_darwin.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48F32EB89D7B00C12573 /* device_info_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BE2EB89CF300C12573 /* device_info_plus.xcframework */; };
+		77AE48F42EB89D7B00C12573 /* device_info_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BE2EB89CF300C12573 /* device_info_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48F52EB89D7B00C12573 /* FBLPromises.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AF2EB89CF200C12573 /* FBLPromises.xcframework */; };
+		77AE48F62EB89D7B00C12573 /* FBLPromises.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AF2EB89CF200C12573 /* FBLPromises.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48F72EB89D7B00C12573 /* firebase_analytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A62EB89CF200C12573 /* firebase_analytics.xcframework */; };
+		77AE48F82EB89D7C00C12573 /* firebase_analytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A62EB89CF200C12573 /* firebase_analytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48F92EB89D7C00C12573 /* firebase_core.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A12EB89CF200C12573 /* firebase_core.xcframework */; };
+		77AE48FA2EB89D7C00C12573 /* firebase_core.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A12EB89CF200C12573 /* firebase_core.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48FB2EB89D7C00C12573 /* firebase_crashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B42EB89CF300C12573 /* firebase_crashlytics.xcframework */; };
+		77AE48FC2EB89D7C00C12573 /* firebase_crashlytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B42EB89CF300C12573 /* firebase_crashlytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48FD2EB89D7C00C12573 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A82EB89CF200C12573 /* FirebaseAnalytics.xcframework */; };
+		77AE48FE2EB89D7C00C12573 /* FirebaseAnalytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A82EB89CF200C12573 /* FirebaseAnalytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE48FF2EB89D7C00C12573 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A92EB89CF200C12573 /* FirebaseCore.xcframework */; };
+		77AE49002EB89D7C00C12573 /* FirebaseCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A92EB89CF200C12573 /* FirebaseCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49012EB89D7C00C12573 /* FirebaseCoreExtension.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A02EB89CF200C12573 /* FirebaseCoreExtension.xcframework */; };
+		77AE49022EB89D7C00C12573 /* FirebaseCoreExtension.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A02EB89CF200C12573 /* FirebaseCoreExtension.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49032EB89D7C00C12573 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48952EB89CF200C12573 /* FirebaseCoreInternal.xcframework */; };
+		77AE49042EB89D7C00C12573 /* FirebaseCoreInternal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48952EB89CF200C12573 /* FirebaseCoreInternal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49052EB89D7C00C12573 /* FirebaseCrashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AD2EB89CF200C12573 /* FirebaseCrashlytics.xcframework */; };
+		77AE49062EB89D7C00C12573 /* FirebaseCrashlytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AD2EB89CF200C12573 /* FirebaseCrashlytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49072EB89D7C00C12573 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A52EB89CF200C12573 /* FirebaseInstallations.xcframework */; };
+		77AE49082EB89D7C00C12573 /* FirebaseInstallations.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A52EB89CF200C12573 /* FirebaseInstallations.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49092EB89D7C00C12573 /* FirebaseRemoteConfigInterop.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A22EB89CF200C12573 /* FirebaseRemoteConfigInterop.xcframework */; };
+		77AE490A2EB89D7C00C12573 /* FirebaseRemoteConfigInterop.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A22EB89CF200C12573 /* FirebaseRemoteConfigInterop.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE490B2EB89D7C00C12573 /* FirebaseSessions.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B82EB89CF300C12573 /* FirebaseSessions.xcframework */; };
+		77AE490C2EB89D7C00C12573 /* FirebaseSessions.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B82EB89CF300C12573 /* FirebaseSessions.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE490D2EB89D7C00C12573 /* flutter_image_api.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48912EB89CF200C12573 /* flutter_image_api.xcframework */; };
+		77AE490E2EB89D7D00C12573 /* flutter_image_api.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48912EB89CF200C12573 /* flutter_image_api.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE490F2EB89D7D00C12573 /* flutter_js.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48962EB89CF200C12573 /* flutter_js.xcframework */; };
+		77AE49102EB89D7D00C12573 /* flutter_js.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48962EB89CF200C12573 /* flutter_js.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49112EB89D7D00C12573 /* flutter_udid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BA2EB89CF300C12573 /* flutter_udid.xcframework */; };
+		77AE49122EB89D7D00C12573 /* flutter_udid.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BA2EB89CF300C12573 /* flutter_udid.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49132EB89D7D00C12573 /* flutter_webgl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48942EB89CF200C12573 /* flutter_webgl.xcframework */; };
+		77AE49142EB89D7D00C12573 /* flutter_webgl.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48942EB89CF200C12573 /* flutter_webgl.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49152EB89D7D00C12573 /* Flutter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489B2EB89CF200C12573 /* Flutter.xcframework */; };
+		77AE49162EB89D7D00C12573 /* Flutter.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489B2EB89CF200C12573 /* Flutter.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49172EB89D7D00C12573 /* Google_Mobile_Ads_SDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489F2EB89CF200C12573 /* Google_Mobile_Ads_SDK.xcframework */; };
+		77AE49182EB89D7D00C12573 /* Google_Mobile_Ads_SDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489F2EB89CF200C12573 /* Google_Mobile_Ads_SDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49192EB89D7D00C12573 /* google_mobile_ads.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489E2EB89CF200C12573 /* google_mobile_ads.xcframework */; };
+		77AE491A2EB89D7D00C12573 /* google_mobile_ads.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489E2EB89CF200C12573 /* google_mobile_ads.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE491B2EB89D7D00C12573 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BB2EB89CF300C12573 /* GoogleAppMeasurement.xcframework */; };
+		77AE491C2EB89D7D00C12573 /* GoogleAppMeasurement.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BB2EB89CF300C12573 /* GoogleAppMeasurement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE491D2EB89D7D00C12573 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B12EB89CF200C12573 /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		77AE491E2EB89D7D00C12573 /* GoogleAppMeasurementIdentitySupport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B12EB89CF200C12573 /* GoogleAppMeasurementIdentitySupport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE491F2EB89D7D00C12573 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AC2EB89CF200C12573 /* GoogleDataTransport.xcframework */; };
+		77AE49202EB89D7D00C12573 /* GoogleDataTransport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AC2EB89CF200C12573 /* GoogleDataTransport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49212EB89D7D00C12573 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AE2EB89CF200C12573 /* GoogleMobileAds.xcframework */; };
+		77AE49222EB89D7D00C12573 /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AE2EB89CF200C12573 /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49232EB89D7D00C12573 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A32EB89CF200C12573 /* GoogleUtilities.xcframework */; };
+		77AE49242EB89D7E00C12573 /* GoogleUtilities.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A32EB89CF200C12573 /* GoogleUtilities.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49252EB89D7E00C12573 /* image_picker_ios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A72EB89CF200C12573 /* image_picker_ios.xcframework */; };
+		77AE49262EB89D7E00C12573 /* image_picker_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A72EB89CF200C12573 /* image_picker_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49272EB89D7E00C12573 /* in_app_purchase_storekit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48922EB89CF200C12573 /* in_app_purchase_storekit.xcframework */; };
+		77AE49282EB89D7E00C12573 /* in_app_purchase_storekit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48922EB89CF200C12573 /* in_app_purchase_storekit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49292EB89D7E00C12573 /* libEGL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A42EB89CF200C12573 /* libEGL.xcframework */; };
+		77AE492A2EB89D7E00C12573 /* libEGL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48A42EB89CF200C12573 /* libEGL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE492B2EB89D7E00C12573 /* libGLESv2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48972EB89CF200C12573 /* libGLESv2.xcframework */; };
+		77AE492C2EB89D7E00C12573 /* libGLESv2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48972EB89CF200C12573 /* libGLESv2.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE492D2EB89D7E00C12573 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AA2EB89CF200C12573 /* nanopb.xcframework */; };
+		77AE492E2EB89D7E00C12573 /* nanopb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AA2EB89CF200C12573 /* nanopb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE492F2EB89D7E00C12573 /* package_info_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48982EB89CF200C12573 /* package_info_plus.xcframework */; };
+		77AE49302EB89D7E00C12573 /* package_info_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48982EB89CF200C12573 /* package_info_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49312EB89D7E00C12573 /* path_provider_foundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B52EB89CF300C12573 /* path_provider_foundation.xcframework */; };
+		77AE49322EB89D7E00C12573 /* path_provider_foundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B52EB89CF300C12573 /* path_provider_foundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49332EB89D7E00C12573 /* permission_handler_apple.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B22EB89CF300C12573 /* permission_handler_apple.xcframework */; };
+		77AE49342EB89D7E00C12573 /* permission_handler_apple.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B22EB89CF300C12573 /* permission_handler_apple.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49352EB89D7E00C12573 /* Promises.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BC2EB89CF300C12573 /* Promises.xcframework */; };
+		77AE49362EB89D7E00C12573 /* Promises.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BC2EB89CF300C12573 /* Promises.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49372EB89D7E00C12573 /* SAMKeychain.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489C2EB89CF200C12573 /* SAMKeychain.xcframework */; };
+		77AE49382EB89D7E00C12573 /* SAMKeychain.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE489C2EB89CF200C12573 /* SAMKeychain.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49392EB89D7E00C12573 /* shared_preferences_foundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48992EB89CF200C12573 /* shared_preferences_foundation.xcframework */; };
+		77AE493A2EB89D7F00C12573 /* shared_preferences_foundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48992EB89CF200C12573 /* shared_preferences_foundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE493B2EB89D7F00C12573 /* sqflite_darwin.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B72EB89CF300C12573 /* sqflite_darwin.xcframework */; };
+		77AE493C2EB89D7F00C12573 /* sqflite_darwin.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B72EB89CF300C12573 /* sqflite_darwin.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE493D2EB89D7F00C12573 /* url_launcher_ios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AB2EB89CF200C12573 /* url_launcher_ios.xcframework */; };
+		77AE493E2EB89D7F00C12573 /* url_launcher_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48AB2EB89CF200C12573 /* url_launcher_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE493F2EB89D7F00C12573 /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48932EB89CF200C12573 /* UserMessagingPlatform.xcframework */; };
+		77AE49402EB89D7F00C12573 /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48932EB89CF200C12573 /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49412EB89D7F00C12573 /* vibration.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B62EB89CF300C12573 /* vibration.xcframework */; };
+		77AE49422EB89D7F00C12573 /* vibration.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B62EB89CF300C12573 /* vibration.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49432EB89D7F00C12573 /* wakelock_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B92EB89CF300C12573 /* wakelock_plus.xcframework */; };
+		77AE49442EB89D7F00C12573 /* wakelock_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48B92EB89CF300C12573 /* wakelock_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49452EB89D7F00C12573 /* webview_flutter_wkwebview.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BD2EB89CF300C12573 /* webview_flutter_wkwebview.xcframework */; };
+		77AE49462EB89D7F00C12573 /* webview_flutter_wkwebview.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE48BD2EB89CF300C12573 /* webview_flutter_wkwebview.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77AE49492EB8A0EF00C12573 /* PlaysoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE49482EB8A0EF00C12573 /* PlaysoutController.swift */; };
+		77AE494D2EB8A1F100C12573 /* PlaysoutBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AE494C2EB8A1F100C12573 /* PlaysoutBridge.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D67EBF634D8AEE6B4BDA05E3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		77AE49472EB89D7F00C12573 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				77AE48FC2EB89D7C00C12573 /* firebase_crashlytics.xcframework in Embed Frameworks */,
+				77AE49102EB89D7D00C12573 /* flutter_js.xcframework in Embed Frameworks */,
+				77AE48FA2EB89D7C00C12573 /* firebase_core.xcframework in Embed Frameworks */,
+				77AE49362EB89D7E00C12573 /* Promises.xcframework in Embed Frameworks */,
+				77AE49062EB89D7C00C12573 /* FirebaseCrashlytics.xcframework in Embed Frameworks */,
+				77AE48F22EB89D7B00C12573 /* audioplayers_darwin.xcframework in Embed Frameworks */,
+				77AE49082EB89D7C00C12573 /* FirebaseInstallations.xcframework in Embed Frameworks */,
+				77AE48F42EB89D7B00C12573 /* device_info_plus.xcframework in Embed Frameworks */,
+				77AE49222EB89D7D00C12573 /* GoogleMobileAds.xcframework in Embed Frameworks */,
+				77AE48EE2EB89D7B00C12573 /* app_links.xcframework in Embed Frameworks */,
+				77AE491A2EB89D7D00C12573 /* google_mobile_ads.xcframework in Embed Frameworks */,
+				77AE48FE2EB89D7C00C12573 /* FirebaseAnalytics.xcframework in Embed Frameworks */,
+				77AE48F82EB89D7C00C12573 /* firebase_analytics.xcframework in Embed Frameworks */,
+				77AE49122EB89D7D00C12573 /* flutter_udid.xcframework in Embed Frameworks */,
+				77AE49322EB89D7E00C12573 /* path_provider_foundation.xcframework in Embed Frameworks */,
+				77AE493A2EB89D7F00C12573 /* shared_preferences_foundation.xcframework in Embed Frameworks */,
+				77AE49202EB89D7D00C12573 /* GoogleDataTransport.xcframework in Embed Frameworks */,
+				77AE49002EB89D7C00C12573 /* FirebaseCore.xcframework in Embed Frameworks */,
+				77AE492E2EB89D7E00C12573 /* nanopb.xcframework in Embed Frameworks */,
+				77AE49182EB89D7D00C12573 /* Google_Mobile_Ads_SDK.xcframework in Embed Frameworks */,
+				77AE49042EB89D7C00C12573 /* FirebaseCoreInternal.xcframework in Embed Frameworks */,
+				77AE490C2EB89D7C00C12573 /* FirebaseSessions.xcframework in Embed Frameworks */,
+				77AE49402EB89D7F00C12573 /* UserMessagingPlatform.xcframework in Embed Frameworks */,
+				77AE491E2EB89D7D00C12573 /* GoogleAppMeasurementIdentitySupport.xcframework in Embed Frameworks */,
+				77AE49302EB89D7E00C12573 /* package_info_plus.xcframework in Embed Frameworks */,
+				77AE49142EB89D7D00C12573 /* flutter_webgl.xcframework in Embed Frameworks */,
+				77AE49262EB89D7E00C12573 /* image_picker_ios.xcframework in Embed Frameworks */,
+				77AE490A2EB89D7C00C12573 /* FirebaseRemoteConfigInterop.xcframework in Embed Frameworks */,
+				77AE492C2EB89D7E00C12573 /* libGLESv2.xcframework in Embed Frameworks */,
+				77AE492A2EB89D7E00C12573 /* libEGL.xcframework in Embed Frameworks */,
+				77AE49462EB89D7F00C12573 /* webview_flutter_wkwebview.xcframework in Embed Frameworks */,
+				77AE49022EB89D7C00C12573 /* FirebaseCoreExtension.xcframework in Embed Frameworks */,
+				77AE49382EB89D7E00C12573 /* SAMKeychain.xcframework in Embed Frameworks */,
+				77AE49442EB89D7F00C12573 /* wakelock_plus.xcframework in Embed Frameworks */,
+				77AE490E2EB89D7D00C12573 /* flutter_image_api.xcframework in Embed Frameworks */,
+				77AE49422EB89D7F00C12573 /* vibration.xcframework in Embed Frameworks */,
+				77AE49242EB89D7E00C12573 /* GoogleUtilities.xcframework in Embed Frameworks */,
+				77AE49162EB89D7D00C12573 /* Flutter.xcframework in Embed Frameworks */,
+				77AE48F62EB89D7B00C12573 /* FBLPromises.xcframework in Embed Frameworks */,
+				77AE493E2EB89D7F00C12573 /* url_launcher_ios.xcframework in Embed Frameworks */,
+				77AE491C2EB89D7D00C12573 /* GoogleAppMeasurement.xcframework in Embed Frameworks */,
+				77AE49282EB89D7E00C12573 /* in_app_purchase_storekit.xcframework in Embed Frameworks */,
+				77AE493C2EB89D7F00C12573 /* sqflite_darwin.xcframework in Embed Frameworks */,
+				77AE49342EB89D7E00C12573 /* permission_handler_apple.xcframework in Embed Frameworks */,
+				77AE48F02EB89D7B00C12573 /* App.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13B07F961A680F5B00A75B9A /* PlaysoutRCNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaysoutRCNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +174,56 @@
 		5709B34CF0A7D63546082F79 /* Pods-PlaysoutRCNDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaysoutRCNDemo.release.xcconfig"; path = "Target Support Files/Pods-PlaysoutRCNDemo/Pods-PlaysoutRCNDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-PlaysoutRCNDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlaysoutRCNDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PlaysoutRCNDemo/AppDelegate.swift; sourceTree = "<group>"; };
+		77AE48912EB89CF200C12573 /* flutter_image_api.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flutter_image_api.xcframework; path = ../../PlaysoutiOSSDK/Debug/flutter_image_api.xcframework; sourceTree = "<group>"; };
+		77AE48922EB89CF200C12573 /* in_app_purchase_storekit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = in_app_purchase_storekit.xcframework; path = ../../PlaysoutiOSSDK/Debug/in_app_purchase_storekit.xcframework; sourceTree = "<group>"; };
+		77AE48932EB89CF200C12573 /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = ../../PlaysoutiOSSDK/Debug/UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		77AE48942EB89CF200C12573 /* flutter_webgl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flutter_webgl.xcframework; path = ../../PlaysoutiOSSDK/Debug/flutter_webgl.xcframework; sourceTree = "<group>"; };
+		77AE48952EB89CF200C12573 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreInternal.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
+		77AE48962EB89CF200C12573 /* flutter_js.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flutter_js.xcframework; path = ../../PlaysoutiOSSDK/Debug/flutter_js.xcframework; sourceTree = "<group>"; };
+		77AE48972EB89CF200C12573 /* libGLESv2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libGLESv2.xcframework; path = ../../PlaysoutiOSSDK/Debug/libGLESv2.xcframework; sourceTree = "<group>"; };
+		77AE48982EB89CF200C12573 /* package_info_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = package_info_plus.xcframework; path = ../../PlaysoutiOSSDK/Debug/package_info_plus.xcframework; sourceTree = "<group>"; };
+		77AE48992EB89CF200C12573 /* shared_preferences_foundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = shared_preferences_foundation.xcframework; path = ../../PlaysoutiOSSDK/Debug/shared_preferences_foundation.xcframework; sourceTree = "<group>"; };
+		77AE489A2EB89CF200C12573 /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = ../../PlaysoutiOSSDK/Debug/App.xcframework; sourceTree = "<group>"; };
+		77AE489B2EB89CF200C12573 /* Flutter.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:S8QB4VV633:FLUTTER.IO LLC"; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = ../../PlaysoutiOSSDK/Debug/Flutter.xcframework; sourceTree = "<group>"; };
+		77AE489C2EB89CF200C12573 /* SAMKeychain.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SAMKeychain.xcframework; path = ../../PlaysoutiOSSDK/Debug/SAMKeychain.xcframework; sourceTree = "<group>"; };
+		77AE489D2EB89CF200C12573 /* audioplayers_darwin.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = audioplayers_darwin.xcframework; path = ../../PlaysoutiOSSDK/Debug/audioplayers_darwin.xcframework; sourceTree = "<group>"; };
+		77AE489E2EB89CF200C12573 /* google_mobile_ads.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = google_mobile_ads.xcframework; path = ../../PlaysoutiOSSDK/Debug/google_mobile_ads.xcframework; sourceTree = "<group>"; };
+		77AE489F2EB89CF200C12573 /* Google_Mobile_Ads_SDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Google_Mobile_Ads_SDK.xcframework; path = ../../PlaysoutiOSSDK/Debug/Google_Mobile_Ads_SDK.xcframework; sourceTree = "<group>"; };
+		77AE48A02EB89CF200C12573 /* FirebaseCoreExtension.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreExtension.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseCoreExtension.xcframework; sourceTree = "<group>"; };
+		77AE48A12EB89CF200C12573 /* firebase_core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = firebase_core.xcframework; path = ../../PlaysoutiOSSDK/Debug/firebase_core.xcframework; sourceTree = "<group>"; };
+		77AE48A22EB89CF200C12573 /* FirebaseRemoteConfigInterop.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseRemoteConfigInterop.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseRemoteConfigInterop.xcframework; sourceTree = "<group>"; };
+		77AE48A32EB89CF200C12573 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = ../../PlaysoutiOSSDK/Debug/GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		77AE48A42EB89CF200C12573 /* libEGL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libEGL.xcframework; path = ../../PlaysoutiOSSDK/Debug/libEGL.xcframework; sourceTree = "<group>"; };
+		77AE48A52EB89CF200C12573 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
+		77AE48A62EB89CF200C12573 /* firebase_analytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = firebase_analytics.xcframework; path = ../../PlaysoutiOSSDK/Debug/firebase_analytics.xcframework; sourceTree = "<group>"; };
+		77AE48A72EB89CF200C12573 /* image_picker_ios.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = image_picker_ios.xcframework; path = ../../PlaysoutiOSSDK/Debug/image_picker_ios.xcframework; sourceTree = "<group>"; };
+		77AE48A82EB89CF200C12573 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
+		77AE48A92EB89CF200C12573 /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseCore.xcframework; sourceTree = "<group>"; };
+		77AE48AA2EB89CF200C12573 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = ../../PlaysoutiOSSDK/Debug/nanopb.xcframework; sourceTree = "<group>"; };
+		77AE48AB2EB89CF200C12573 /* url_launcher_ios.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = url_launcher_ios.xcframework; path = ../../PlaysoutiOSSDK/Debug/url_launcher_ios.xcframework; sourceTree = "<group>"; };
+		77AE48AC2EB89CF200C12573 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = ../../PlaysoutiOSSDK/Debug/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
+		77AE48AD2EB89CF200C12573 /* FirebaseCrashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCrashlytics.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseCrashlytics.xcframework; sourceTree = "<group>"; };
+		77AE48AE2EB89CF200C12573 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = ../../PlaysoutiOSSDK/Debug/GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		77AE48AF2EB89CF200C12573 /* FBLPromises.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FBLPromises.xcframework; path = ../../PlaysoutiOSSDK/Debug/FBLPromises.xcframework; sourceTree = "<group>"; };
+		77AE48B02EB89CF200C12573 /* FlutterPluginRegistrant.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FlutterPluginRegistrant.xcframework; path = ../../PlaysoutiOSSDK/Debug/FlutterPluginRegistrant.xcframework; sourceTree = "<group>"; };
+		77AE48B12EB89CF200C12573 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = ../../PlaysoutiOSSDK/Debug/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		77AE48B22EB89CF300C12573 /* permission_handler_apple.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = permission_handler_apple.xcframework; path = ../../PlaysoutiOSSDK/Debug/permission_handler_apple.xcframework; sourceTree = "<group>"; };
+		77AE48B32EB89CF300C12573 /* app_links.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = app_links.xcframework; path = ../../PlaysoutiOSSDK/Debug/app_links.xcframework; sourceTree = "<group>"; };
+		77AE48B42EB89CF300C12573 /* firebase_crashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = firebase_crashlytics.xcframework; path = ../../PlaysoutiOSSDK/Debug/firebase_crashlytics.xcframework; sourceTree = "<group>"; };
+		77AE48B52EB89CF300C12573 /* path_provider_foundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = path_provider_foundation.xcframework; path = ../../PlaysoutiOSSDK/Debug/path_provider_foundation.xcframework; sourceTree = "<group>"; };
+		77AE48B62EB89CF300C12573 /* vibration.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = vibration.xcframework; path = ../../PlaysoutiOSSDK/Debug/vibration.xcframework; sourceTree = "<group>"; };
+		77AE48B72EB89CF300C12573 /* sqflite_darwin.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = sqflite_darwin.xcframework; path = ../../PlaysoutiOSSDK/Debug/sqflite_darwin.xcframework; sourceTree = "<group>"; };
+		77AE48B82EB89CF300C12573 /* FirebaseSessions.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseSessions.xcframework; path = ../../PlaysoutiOSSDK/Debug/FirebaseSessions.xcframework; sourceTree = "<group>"; };
+		77AE48B92EB89CF300C12573 /* wakelock_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = wakelock_plus.xcframework; path = ../../PlaysoutiOSSDK/Debug/wakelock_plus.xcframework; sourceTree = "<group>"; };
+		77AE48BA2EB89CF300C12573 /* flutter_udid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flutter_udid.xcframework; path = ../../PlaysoutiOSSDK/Debug/flutter_udid.xcframework; sourceTree = "<group>"; };
+		77AE48BB2EB89CF300C12573 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = ../../PlaysoutiOSSDK/Debug/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		77AE48BC2EB89CF300C12573 /* Promises.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Promises.xcframework; path = ../../PlaysoutiOSSDK/Debug/Promises.xcframework; sourceTree = "<group>"; };
+		77AE48BD2EB89CF300C12573 /* webview_flutter_wkwebview.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = webview_flutter_wkwebview.xcframework; path = ../../PlaysoutiOSSDK/Debug/webview_flutter_wkwebview.xcframework; sourceTree = "<group>"; };
+		77AE48BE2EB89CF300C12573 /* device_info_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = device_info_plus.xcframework; path = ../../PlaysoutiOSSDK/Debug/device_info_plus.xcframework; sourceTree = "<group>"; };
+		77AE49482EB8A0EF00C12573 /* PlaysoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysoutController.swift; sourceTree = "<group>"; };
+		77AE494A2EB8A11C00C12573 /* PlaysoutBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaysoutBridge.h; sourceTree = "<group>"; };
+		77AE494B2EB8A1F100C12573 /* PlaysoutRCNDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlaysoutRCNDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		77AE494C2EB8A1F100C12573 /* PlaysoutBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaysoutBridge.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PlaysoutRCNDemo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -31,7 +233,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AE49052EB89D7C00C12573 /* FirebaseCrashlytics.xcframework in Frameworks */,
+				77AE48F12EB89D7B00C12573 /* audioplayers_darwin.xcframework in Frameworks */,
+				77AE49432EB89D7F00C12573 /* wakelock_plus.xcframework in Frameworks */,
+				77AE491F2EB89D7D00C12573 /* GoogleDataTransport.xcframework in Frameworks */,
+				77AE49412EB89D7F00C12573 /* vibration.xcframework in Frameworks */,
+				77AE491B2EB89D7D00C12573 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				77AE49352EB89D7E00C12573 /* Promises.xcframework in Frameworks */,
+				77AE492B2EB89D7E00C12573 /* libGLESv2.xcframework in Frameworks */,
+				77AE48F72EB89D7B00C12573 /* firebase_analytics.xcframework in Frameworks */,
+				77AE49112EB89D7D00C12573 /* flutter_udid.xcframework in Frameworks */,
+				77AE492D2EB89D7E00C12573 /* nanopb.xcframework in Frameworks */,
+				77AE49132EB89D7D00C12573 /* flutter_webgl.xcframework in Frameworks */,
+				77AE490F2EB89D7D00C12573 /* flutter_js.xcframework in Frameworks */,
+				77AE49372EB89D7E00C12573 /* SAMKeychain.xcframework in Frameworks */,
+				77AE49332EB89D7E00C12573 /* permission_handler_apple.xcframework in Frameworks */,
+				77AE49152EB89D7D00C12573 /* Flutter.xcframework in Frameworks */,
+				77AE48ED2EB89D7B00C12573 /* app_links.xcframework in Frameworks */,
+				77AE49032EB89D7C00C12573 /* FirebaseCoreInternal.xcframework in Frameworks */,
+				77AE49272EB89D7E00C12573 /* in_app_purchase_storekit.xcframework in Frameworks */,
+				77AE48FB2EB89D7C00C12573 /* firebase_crashlytics.xcframework in Frameworks */,
+				77AE49232EB89D7D00C12573 /* GoogleUtilities.xcframework in Frameworks */,
+				77AE48FF2EB89D7C00C12573 /* FirebaseCore.xcframework in Frameworks */,
+				77AE48DE2EB89CF300C12573 /* FlutterPluginRegistrant.xcframework in Frameworks */,
+				77AE49012EB89D7C00C12573 /* FirebaseCoreExtension.xcframework in Frameworks */,
+				77AE49072EB89D7C00C12573 /* FirebaseInstallations.xcframework in Frameworks */,
+				77AE493B2EB89D7F00C12573 /* sqflite_darwin.xcframework in Frameworks */,
+				77AE49392EB89D7E00C12573 /* shared_preferences_foundation.xcframework in Frameworks */,
+				77AE49292EB89D7E00C12573 /* libEGL.xcframework in Frameworks */,
+				77AE48EF2EB89D7B00C12573 /* App.xcframework in Frameworks */,
+				77AE48F92EB89D7C00C12573 /* firebase_core.xcframework in Frameworks */,
+				77AE49452EB89D7F00C12573 /* webview_flutter_wkwebview.xcframework in Frameworks */,
+				77AE48F32EB89D7B00C12573 /* device_info_plus.xcframework in Frameworks */,
+				77AE49312EB89D7E00C12573 /* path_provider_foundation.xcframework in Frameworks */,
+				77AE49092EB89D7C00C12573 /* FirebaseRemoteConfigInterop.xcframework in Frameworks */,
+				77AE490B2EB89D7C00C12573 /* FirebaseSessions.xcframework in Frameworks */,
+				77AE492F2EB89D7E00C12573 /* package_info_plus.xcframework in Frameworks */,
+				77AE49252EB89D7E00C12573 /* image_picker_ios.xcframework in Frameworks */,
+				77AE49192EB89D7D00C12573 /* google_mobile_ads.xcframework in Frameworks */,
+				77AE49172EB89D7D00C12573 /* Google_Mobile_Ads_SDK.xcframework in Frameworks */,
+				77AE49212EB89D7D00C12573 /* GoogleMobileAds.xcframework in Frameworks */,
+				77AE493F2EB89D7F00C12573 /* UserMessagingPlatform.xcframework in Frameworks */,
+				77AE48FD2EB89D7C00C12573 /* FirebaseAnalytics.xcframework in Frameworks */,
+				77AE493D2EB89D7F00C12573 /* url_launcher_ios.xcframework in Frameworks */,
+				77AE490D2EB89D7C00C12573 /* flutter_image_api.xcframework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-PlaysoutRCNDemo.a in Frameworks */,
+				77AE491D2EB89D7D00C12573 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				77AE48F52EB89D7B00C12573 /* FBLPromises.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +294,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				77AE49482EB8A0EF00C12573 /* PlaysoutController.swift */,
+				77AE494A2EB8A11C00C12573 /* PlaysoutBridge.h */,
+				77AE494C2EB8A1F100C12573 /* PlaysoutBridge.m */,
+				77AE494B2EB8A1F100C12573 /* PlaysoutRCNDemo-Bridging-Header.h */,
 			);
 			name = PlaysoutRCNDemo;
 			sourceTree = "<group>";
@@ -53,6 +305,52 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77AE489A2EB89CF200C12573 /* App.xcframework */,
+				77AE48B32EB89CF300C12573 /* app_links.xcframework */,
+				77AE489D2EB89CF200C12573 /* audioplayers_darwin.xcframework */,
+				77AE48BE2EB89CF300C12573 /* device_info_plus.xcframework */,
+				77AE48AF2EB89CF200C12573 /* FBLPromises.xcframework */,
+				77AE48A62EB89CF200C12573 /* firebase_analytics.xcframework */,
+				77AE48A12EB89CF200C12573 /* firebase_core.xcframework */,
+				77AE48B42EB89CF300C12573 /* firebase_crashlytics.xcframework */,
+				77AE48A82EB89CF200C12573 /* FirebaseAnalytics.xcframework */,
+				77AE48A92EB89CF200C12573 /* FirebaseCore.xcframework */,
+				77AE48A02EB89CF200C12573 /* FirebaseCoreExtension.xcframework */,
+				77AE48952EB89CF200C12573 /* FirebaseCoreInternal.xcframework */,
+				77AE48AD2EB89CF200C12573 /* FirebaseCrashlytics.xcframework */,
+				77AE48A52EB89CF200C12573 /* FirebaseInstallations.xcframework */,
+				77AE48A22EB89CF200C12573 /* FirebaseRemoteConfigInterop.xcframework */,
+				77AE48B82EB89CF300C12573 /* FirebaseSessions.xcframework */,
+				77AE489B2EB89CF200C12573 /* Flutter.xcframework */,
+				77AE48912EB89CF200C12573 /* flutter_image_api.xcframework */,
+				77AE48962EB89CF200C12573 /* flutter_js.xcframework */,
+				77AE48BA2EB89CF300C12573 /* flutter_udid.xcframework */,
+				77AE48942EB89CF200C12573 /* flutter_webgl.xcframework */,
+				77AE48B02EB89CF200C12573 /* FlutterPluginRegistrant.xcframework */,
+				77AE489E2EB89CF200C12573 /* google_mobile_ads.xcframework */,
+				77AE489F2EB89CF200C12573 /* Google_Mobile_Ads_SDK.xcframework */,
+				77AE48BB2EB89CF300C12573 /* GoogleAppMeasurement.xcframework */,
+				77AE48B12EB89CF200C12573 /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				77AE48AC2EB89CF200C12573 /* GoogleDataTransport.xcframework */,
+				77AE48AE2EB89CF200C12573 /* GoogleMobileAds.xcframework */,
+				77AE48A32EB89CF200C12573 /* GoogleUtilities.xcframework */,
+				77AE48A72EB89CF200C12573 /* image_picker_ios.xcframework */,
+				77AE48922EB89CF200C12573 /* in_app_purchase_storekit.xcframework */,
+				77AE48A42EB89CF200C12573 /* libEGL.xcframework */,
+				77AE48972EB89CF200C12573 /* libGLESv2.xcframework */,
+				77AE48AA2EB89CF200C12573 /* nanopb.xcframework */,
+				77AE48982EB89CF200C12573 /* package_info_plus.xcframework */,
+				77AE48B52EB89CF300C12573 /* path_provider_foundation.xcframework */,
+				77AE48B22EB89CF300C12573 /* permission_handler_apple.xcframework */,
+				77AE48BC2EB89CF300C12573 /* Promises.xcframework */,
+				77AE489C2EB89CF200C12573 /* SAMKeychain.xcframework */,
+				77AE48992EB89CF200C12573 /* shared_preferences_foundation.xcframework */,
+				77AE48B72EB89CF300C12573 /* sqflite_darwin.xcframework */,
+				77AE48AB2EB89CF200C12573 /* url_launcher_ios.xcframework */,
+				77AE48932EB89CF200C12573 /* UserMessagingPlatform.xcframework */,
+				77AE48B62EB89CF300C12573 /* vibration.xcframework */,
+				77AE48B92EB89CF300C12573 /* wakelock_plus.xcframework */,
+				77AE48BD2EB89CF300C12573 /* webview_flutter_wkwebview.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-PlaysoutRCNDemo.a */,
 			);
@@ -111,6 +409,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				77AE49472EB89D7F00C12573 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,7 +429,7 @@
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1610;
 					};
 				};
 			};
@@ -159,6 +458,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				D67EBF634D8AEE6B4BDA05E3 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +544,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AE49492EB8A0EF00C12573 /* PlaysoutController.swift in Sources */,
+				77AE494D2EB8A1F100C12573 /* PlaysoutBridge.m in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +561,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/hermes-engine/destroot/Library/Frameworks/universal\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built\"",
+					"$(PROJECT_DIR)/../PlaysoutiOSSDK/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = PlaysoutRCNDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -273,6 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PlaysoutRCNDemo;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaysoutRCNDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -286,6 +595,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/hermes-engine/destroot/Library/Frameworks/universal\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built\"",
+					"$(PROJECT_DIR)/../PlaysoutiOSSDK/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = PlaysoutRCNDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -300,6 +615,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PlaysoutRCNDemo;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaysoutRCNDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -374,7 +690,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -439,7 +758,9 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

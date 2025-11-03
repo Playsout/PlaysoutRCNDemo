@@ -110,6 +110,9 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    debugImplementation 'com.playsout.playsout_sdk:flutter_debug:1.0'
+    // profileImplementation 'com.playsout.playsout_sdk:flutter_profile:1.0'
+    releaseImplementation 'com.playsout.playsout_sdk:flutter_release:1.0'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

@@ -1,0 +1,232 @@
+这个是SDK的README文件
+react-native 接入Playsout SDK 的step by step 指南
+///////////////////////////////////////////////////////////////////////////////////////////////
+IOS 接入
+从官网下载Playsout SDK 并解压缩，可以放到跟项目根目录同级，目录结构如下：
+```
+- PlaysoutSDK-ios
+- YourProject
+- ...
+```
+playsout sdk是用flutter写的，所以需要在ios项目中引入flutter的代码。
+在ios项目中引入flutter的代码可以参考[flutter官方文档](https://flutter.dev/docs/development/add-to-app/ios/project-setup)。
+
+按照官方文档配置好以后，还需要在info.plist中添加一些广告相关的配置（参考）
+<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-5786239153559923~8774892809</string>
+
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>cstr6suwn9.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>4fzdc2evr5.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>2fnua5tdw4.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>ydx93a7ass.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>p78axxw29g.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>v72qych5uu.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>ludvb6z3bs.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>cp8zw746q7.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>3sh42y64q3.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>c6k4g5qg8m.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>s39g8k73mm.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>3qy4746246.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>f38h382jlk.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>hs6bdukanm.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>mlmmfzh3r3.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>v4nxqhlyqp.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>wzmmz9fp6w.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>su67r6k2v3.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>yclnxrl5pm.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>t38b2kh725.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>7ug5zh24hu.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>gta9lk7p23.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>vutu7akeur.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>y5ghdn5j9k.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>v9wttpbfk9.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>n38lu8286q.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>47vhws6wlr.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>kbd757ywx3.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>9t245vhmpl.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>a2p9lx4jpn.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>22mmun2rn5.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>44jx6755aq.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>k674qkevps.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>4468km3ulz.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>2u9pt9hc89.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>8s468mfl3y.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>klf5c3l5u5.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>ppxm28t8ap.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>kbmxgpxpgc.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>uw77j35x4d.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>578prtvx9j.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>4dzt52r2t5.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>tl55sbb4fm.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>c3frkrj4fj.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>e5fvkxwrpn.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>8c4e2ghe7u.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>3rd42ekr43.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>97r2b46745.skadnetwork</string>
+	</dict>
+	<dict>
+		<key>SKAdNetworkIdentifier</key>
+		<string>3qcr597p9d.skadnetwork</string>
+	</dict>
+</array>
+</plist>
+
+接下来需要在ios项目中引入playsout sdk的代码。参考demo中的代码。
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+android sdk 引入
+从官网下载Playsout SDK 并解压缩，可以放到跟项目根目录同级，目录结构如下：
+```
+- PlaysoutSDK-android
+- YourProject
+- ...
+```
+在Android项目中引入flutter的代码可以参考 官方文档：https://flutter.dev/docs/development/add-to-app/android/project-setup
+
+调用方式，参考demo中android部分的代码
+

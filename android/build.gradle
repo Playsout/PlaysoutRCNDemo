@@ -10,6 +10,15 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // 添加本地 Maven 仓库路径
+        maven {
+            url "/Users/wl/Desktop/job/learn/rntest/Playsout_sdk_android-main/build/host/outputs/repo"
+            // url "../../Playsout_sdk_android-main/build/host/outputs/repo"
+        }
+        // 添加 Flutter 官方仓库
+        maven {
+            url "https://storage.googleapis.com/download.flutter.io"
+        }
     }
     dependencies {
         classpath("com.android.tools.build:gradle")
@@ -19,3 +28,20 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+// 重要：在文件末尾添加allprojects配置，确保应用模块也能访问这些仓库
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        // 本地Flutter模块仓库
+        maven {
+            url "/Users/wl/Desktop/job/learn/rntest/Playsout_sdk_android-main/build/host/outputs/repo"
+            // url "../../Playsout_sdk_android-main/build/host/outputs/repo"
+        }
+        // Flutter官方仓库
+        maven {
+            url "https://storage.googleapis.com/download.flutter.io"
+        }
+    }
+}
+
