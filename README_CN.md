@@ -1,69 +1,69 @@
-# Playsout SDK Integration and Usage Guide
+# Playsout SDK 集成与使用指南
 
-## Project Overview
+## 项目概述
 
-PlaysoutRCNDemo is a React Native project demonstrating how to integrate and use the Flutter-based Playsout SDK on both Android and iOS platforms. The project achieves seamless communication and interaction between React Native and Flutter through native bridging.
+PlaysoutRCNDemo 是一个 React Native 项目，展示了如何在 Android 和 iOS 平台上集成使用 Flutter 开发的 Playsout SDK。该项目通过原生桥接方式实现了 React Native 与 Flutter 的无缝通信和交互。
 
-## Technology Stack
+## 技术栈
 
-- React Native: Cross-platform mobile application development framework
-- Flutter: UI framework used to build the Playsout SDK
-- Kotlin: Android native development language
-- Swift/Objective-C: iOS native development languages
+- React Native: 跨平台移动应用开发框架
+- Flutter: 用于构建 Playsout SDK 的 UI 框架
+- Kotlin: Android 原生开发语言
+- Swift/Objective-C: iOS 原生开发语言
 
-## Environment Requirements
+## 环境要求
 
 - **React Native**: 0.82.1
 - **React**: 19.1.1
 - **Node.js**: >= 20
-- **Flutter**: Recommended to use a stable version compatible with Playsout SDK, Flutter 3.10+
+- **Flutter**: 推荐使用与Playsout SDK兼容的稳定版本，建议使用Flutter 3.10+
 - **Android**:
-  - Minimum SDK version: 24 (Android 7.0 Nougat)
-  - Target SDK version: 36
-  - Build Tools version: 36.0.0
-  - Kotlin version: 2.1.20
+  - 最低SDK版本: 24 (Android 7.0 Nougat)
+  - 目标SDK版本: 36
+  - 构建工具版本: 36.0.0
+  - Kotlin版本: 2.1.20
 - **iOS**:
-  - iOS versions compatible with React Native 0.82.1
-  - Flutter.framework installation required
+  - 支持与React Native 0.82.1兼容的iOS版本
+  - 需要安装Flutter.framework
 
-## SDK Integration Environment Configuration
+## SDK 接入环境配置
 
-Before integrating the Playsout SDK, you need to configure the Flutter to native environment integration. Here are the official Flutter configuration documents:
+在集成 Playsout SDK 之前，需要先配置 Flutter 到原生环境的集成环境。以下是 Flutter 官方提供的配置文档：
 
-- **Android Platform Configuration Document**: <mcurl name="Add Flutter to existing app - Android" url="https://docs.flutter.dev/add-to-app/android/project-setup"></mcurl>
-- **iOS Platform Configuration Document**: <mcurl name="Add Flutter to existing app - iOS" url="https://docs.flutter.dev/add-to-app/ios/project-setup"></mcurl>
+- **Android 平台配置文档**: <mcurl name="Add Flutter to existing app - Android" url="https://docs.flutter.dev/add-to-app/android/project-setup"></mcurl>
+- **iOS 平台配置文档**: <mcurl name="Add Flutter to existing app - iOS" url="https://docs.flutter.dev/add-to-app/ios/project-setup"></mcurl>
 
-Please complete the basic environment configuration according to the official documentation before proceeding with the following Playsout SDK-specific integration steps.
+请按照官方文档完成基础环境配置后，再进行以下 Playsout SDK 特定的集成步骤。
 
-## Android Platform SDK Integration
+## Android 平台 SDK 接入方式
 
-### 1. Initialize Flutter Engine
+### 1. 初始化 Flutter Engine
 
-In MainApplication.kt, initialize the Flutter Engine when the application starts:
+在 MainApplication.kt 中，应用启动时初始化 Flutter Engine：
 
 ```kotlin
 private fun initFlutterEngine() {
-    // Create FlutterEngine instance
+    // 创建FlutterEngine实例
     val flutterEngine = FlutterEngine(this)
     
-    // Set initial route parameters, including channel and SDK key
-    // Note: sdkkey needs to be obtained from Playsout SDK provider
+    // 设置初始路由参数，包含通道和SDK密钥
+    // 注意：sdkkey需要向Playsout SDK提供方申请获取
     val initialRoute = "/home?channel=playsout&sdkkey=eyJ2ZXIiOiJ2MSIsImNoYW5uZWwiOiJwbGF5c291dCIsInBhY2thZ2VuYW1lIjoiIiwiZXhwIjoxNzY0MTI0NDc3fS5zaWc"
     flutterEngine.navigationChannel.setInitialRoute(initialRoute)
     
-    // Execute Flutter entry point
+    // 执行Flutter入口点
     flutterEngine.dartExecutor.executeDartEntrypoint(
         DartExecutor.DartEntrypoint.createDefault()
     )
     
-    // Cache FlutterEngine for later use
+    // 缓存FlutterEngine供后续使用
     FlutterEngineCache.getInstance().put(FLUTTER_ENGINE_ID, flutterEngine)
 }
 ```
 
-### 2. Register React Native Native Module
+### 2. 注册 React Native 原生模块
 
-Register PlaysoutPackage in MainApplication.kt:
+在 MainApplication.kt 中注册 PlaysoutPackage：
 
 ```kotlin
 override val reactHost: ReactHost by lazy {
@@ -71,42 +71,42 @@ override val reactHost: ReactHost by lazy {
       context = applicationContext,
       packageList =
         PackageList(this).packages.apply {
-          add(PlaysoutPackage()) // Add PlaysoutPackage
+          add(PlaysoutPackage()) // 添加PlaysoutPackage
         },
     )
   }
 ```
 
-### 3. Implement Native Module Interface
+### 3. 实现原生模块接口
 
-Register PlaysoutUIModule in PlaysoutPackage.kt:
+在 PlaysoutPackage.kt 中注册 PlaysoutUIModule：
 
 ```kotlin
 class PlaysoutPackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        // Register our module
+        // 注册我们的模块
         return listOf(
-            PlaysoutUIModule(reactContext) // Add PlaysoutUI module
+            PlaysoutUIModule(reactContext) // 添加PlaysoutUI模块
         )
     }
     
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-        // This module doesn't provide UI components, so return empty list
+        // 这个模块不提供UI组件，所以返回空列表
         return emptyList()
     }
 }
 ```
 
-### 4. Implement Flutter UI Control Module
+### 4. 实现 Flutter 界面控制模块
 
-Provide JavaScript calling methods in PlaysoutUIModule.kt:
+在 PlaysoutUIModule.kt 中提供 JavaScript 调用方法：
 
 ```kotlin
 class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
-    // Module name, accessed via NativeModules.PlaysoutUIModule on JavaScript side
+    // 模块名称，在JavaScript端通过NativeModules.PlaysoutUIModule访问
     override fun getName() = "PlaysoutUIModule"
     
-    // Method to show Flutter UI
+    // 显示Flutter界面的方法
     @ReactMethod
     fun showFlutter() {
         val currentActivity = reactApplicationContext.currentActivity
@@ -117,7 +117,7 @@ class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBase
         }
     }
     
-    // Method to hide Flutter UI
+    // 隐藏Flutter界面的方法
     @ReactMethod
     fun hideFlutter() {
         val currentActivity = reactApplicationContext.currentActivity
@@ -130,17 +130,17 @@ class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBase
 }
 ```
 
-### 5. Manage Flutter Fragment in MainActivity
+### 5. 在 MainActivity 中管理 Flutter Fragment
 
-Implement functionality to show and hide Flutter Fragment in MainActivity.kt:
+在 MainActivity.kt 中实现显示和隐藏 Flutter Fragment 的功能：
 
 ```kotlin
-// Show Flutter UI
+// 显示Flutter界面
 fun showFlutter() {
-    // Create FlutterFragment using cached engine
+    // 创建FlutterFragment并使用缓存的引擎
     flutterFragment = FlutterFragment.withCachedEngine(FLUTTER_ENGINE_ID).build()
     
-    // Add Fragment to current Activity
+    // 添加Fragment到当前Activity
     val transaction = supportFragmentManager.beginTransaction()
     transaction.replace(android.R.id.content, flutterFragment!!)
     transaction.addToBackStack(null)
@@ -149,7 +149,7 @@ fun showFlutter() {
     showingFlutter = true
 }
 
-// Hide Flutter UI
+// 隐藏Flutter界面
 fun hideFlutter() {
     if (showingFlutter && flutterFragment != null) {
         supportFragmentManager
@@ -163,33 +163,33 @@ fun hideFlutter() {
 }
 ```
 
-## iOS Platform SDK Integration
+## iOS 平台 SDK 接入方式
 
-### 1. Configure Flutter Engine and Controller
+### 1. 配置 Flutter 引擎和控制器
 
-Implement a subclass of FlutterViewController in PlaysoutController.swift:
+在 PlaysoutController.swift 中实现 FlutterViewController 的子类：
 
 ```swift
 @objc class PlaysoutController: FlutterViewController {
     @objc init(engine: FlutterEngine?, channelName: String = "", method: String = "", arguments:[String: Any]?) {
-        // Create FlutterEngine
+        // 创建FlutterEngine
         var flutterEngine = FlutterEngine(name: "com.playsout.minigames")
         
-        // Set initial route, including channel and SDK key
-        // Note: sdkkey needs to be obtained from Playsout SDK provider
+        // 设置初始路由，包含通道和SDK密钥
+        // 注意：sdkkey需要向Playsout SDK提供方申请获取
         let initialRoute = "/home?channel=playsout&sdkkey=eyJ2ZXIiOiJ2MSIsImNoYW5uZWwiOiJwbGF5c291dCIsInBhY2thZ2VuYW1lIjoiIiwiZXhwIjoxNzYyOTQwNzU4fS5zaWc"
         flutterEngine.run(withEntrypoint: "main", initialRoute: initialRoute)
             
-        // Register all Flutter plugins
+        // 注册所有Flutter插件
         GeneratedPluginRegistrant.register(with: flutterEngine)
         
         super.init(engine: flutterEngine, nibName: nil, bundle: nil)
         
-        // Set up MethodChannel for communication
+        // 设置MethodChannel用于通信
         let messageChannel = FlutterMethodChannel(name: channelName, binaryMessenger: self.binaryMessenger)
         messageChannel.invokeMethod(method, arguments: arguments)
         
-        // Set method handler
+        // 设置方法处理器
         messageChannel.setMethodCallHandler{[weak self] (call, result) in
             if call.method == "show" {
                 self?.showFlutterUI()
@@ -200,13 +200,13 @@ Implement a subclass of FlutterViewController in PlaysoutController.swift:
         }
     }
     
-    // Method to show Flutter UI
+    // 显示Flutter UI的方法
     private func showFlutterUI() {
-        // Ensure view is visible
+        // 确保视图可见
         self.view.isHidden = false
         self.view.alpha = 1.0
         
-        // Add animation effect
+        // 添加动画效果
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
@@ -214,44 +214,44 @@ Implement a subclass of FlutterViewController in PlaysoutController.swift:
 }
 ```
 
-### 2. Create React Native Bridge Module
+### 2. 创建 React Native 桥接模块
 
-Implement the interface for React Native to call iOS native code in PlaysoutBridge.m:
+在 PlaysoutBridge.m 中实现 React Native 调用 iOS 原生代码的接口：
 
 ```objective-c
 @implementation PlaysoutBridge
 
 RCT_EXPORT_MODULE();
 
-// Export method: open PlaysoutController view
+// 导出方法：打开PlaysoutController视图
 RCT_EXPORT_METHOD(openPlaysoutController:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   @try {
-    // Ensure UI operations are executed on the main thread
+    // 确保在主线程上执行UI操作
     dispatch_async(dispatch_get_main_queue(), ^{      
-      // Get the current root view controller
+      // 获取当前的根视图控制器
       UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
       
-      // Create PlaysoutController instance
+      // 创建PlaysoutController实例
       PlaysoutController *playsoutController = [[PlaysoutController alloc] initWithEngine:nil channelName:@"com.playsout.minigames" method:@"init" arguments:nil];
       playsoutController.modalPresentationStyle = UIModalPresentationFullScreen;
       
-      // Configure MethodChannel
+      // 配置MethodChannel
       FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"com.playsout.minigames" binaryMessenger:playsoutController.binaryMessenger];
       
-      // Define callback to show Flutter UI
+      // 定义显示Flutter UI的回调
       void (^showFlutterUICallback)(void) = ^{        
         [channel invokeMethod:@"show" arguments:nil];
       };
       
-      // Show view controller
+      // 显示视图控制器
       if ([rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navController = (UINavigationController *)rootViewController;
         [navController pushViewController:playsoutController animated:YES];
         
-        // Delay execution of show method to ensure view is loaded
+        // 延迟执行show方法确保视图已加载
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), showFlutterUICallback);
       } else {
-        // Wrap in navigation controller
+        // 包装成导航控制器
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:playsoutController];
         [rootViewController presentViewController:navController animated:YES completion:showFlutterUICallback];
       }
@@ -265,9 +265,9 @@ RCT_EXPORT_METHOD(openPlaysoutController:(RCTPromiseResolveBlock)resolve rejecte
 @end
 ```
 
-### 3. Configure Project Dependencies
+### 3. 配置项目依赖
 
-Add Flutter-related dependencies to iOS project configuration, configure framework search paths:
+在 iOS 项目配置中添加 Flutter 相关依赖，配置 framework 搜索路径：
 
 ```
 FRAMEWORK_SEARCH_PATHS = (
@@ -276,25 +276,25 @@ FRAMEWORK_SEARCH_PATHS = (
 );
 ```
 
-## Using Playsout SDK in React Native
+## 在 React Native 中使用 Playsout SDK
 
-### Android Platform Usage
+### Android 平台使用方法
 
 ```javascript
-// Import NativeModules
+// 导入 NativeModules
 import { NativeModules, Platform } from 'react-native';
 
-// Get PlaysoutUIModule
+// 获取 PlaysoutUIModule
 const { PlaysoutUIModule } = NativeModules;
 
-// Show Flutter UI
+// 显示 Flutter 界面
 const showFlutterUI = () => {
   if (Platform.OS === 'android') {
     PlaysoutUIModule.showFlutter();
   }
 };
 
-// Hide Flutter UI
+// 隐藏 Flutter 界面
 const hideFlutterUI = () => {
   if (Platform.OS === 'android') {
     PlaysoutUIModule.hideFlutter();
@@ -302,59 +302,58 @@ const hideFlutterUI = () => {
 };
 ```
 
-### iOS Platform Usage
+### iOS 平台使用方法
 
 ```javascript
-// Import NativeModules
+// 导入 NativeModules
 import { NativeModules, Platform } from 'react-native';
 
-// Get PlaysoutBridge
+// 获取 PlaysoutBridge
 const { PlaysoutBridge } = NativeModules;
 
-// Open and show Flutter UI
+// 打开并显示 Flutter 界面
 const handleIOSSDKPress = async () => {
   if (Platform.OS === 'ios') {
     try {
       const result = await PlaysoutBridge.openPlaysoutController();
-      console.log('Open PlaysoutController result:', result);
+      console.log('打开PlaysoutController结果:', result);
     } catch (error) {
-      console.error('Failed to open PlaysoutController:', error);
+      console.error('打开PlaysoutController失败:', error);
     }
   }
 };
 ```
 
-## Integration Process Summary
+## 集成流程总结
 
-### Android Platform
+### Android 平台
 
-1. Initialize Flutter Engine and cache it when Application starts
-2. Create React Native native module to provide JavaScript calling interface
-3. Use FlutterFragment in Activity to manage Flutter views
-4. Call native methods in JavaScript through NativeModules to show/hide Flutter UI
+1. 在 Application 启动时初始化 Flutter Engine 并缓存
+2. 创建 React Native 原生模块，提供 JavaScript 调用接口
+3. 在 Activity 中使用 FlutterFragment 管理 Flutter 视图
+4. 通过 NativeModules 在 JavaScript 中调用原生方法显示/隐藏 Flutter 界面
 
-### iOS Platform
+### iOS 平台
 
-1. Create FlutterViewController subclass to manage Flutter UI
-2. Set up Flutter Engine and initial route parameters
-3. Implement React Native bridge module to expose methods for JavaScript to call
-4. Open Flutter UI in JavaScript through NativeModules
+1. 创建 FlutterViewController 子类管理 Flutter 界面
+2. 设置 Flutter Engine 和初始路由参数
+3. 实现 React Native 桥接模块，暴露方法给 JavaScript 调用
+4. 通过 NativeModules 在 JavaScript 中打开 Flutter 界面
 
-## Communication Mechanism
+## 通信机制
 
-Both platforms use MethodChannel for bidirectional communication between Flutter and native code, enabling data exchange and method calls.
+两个平台都使用了 MethodChannel 进行 Flutter 和原生代码之间的双向通信，实现了数据交换和方法调用。
 
-## Notes
+## 注意事项
 
-- Android platform uses FlutterFragment to embed Flutter views
-- iOS platform uses FlutterViewController to manage Flutter views
-- **SDK Key Acquisition:** sdkkey needs to be obtained from Playsout SDK provider, the key in the example is for demonstration only
-- iOS platform needs to ensure correct framework search path configuration
+- Android 平台使用了 FlutterFragment 嵌入 Flutter 视图
+- iOS 平台使用了 FlutterViewController 管理 Flutter 视图
+- **SDK 密钥获取：** sdkkey 需要向 Playsout SDK 提供方申请获取，示例中的密钥仅供演示使用
+- iOS 平台需要确保正确配置 framework 搜索路径
 
-## Troubleshooting
+## 故障排除
 
-- Ensure Flutter Engine is initialized correctly
-- Check if MethodChannel names match
-- Verify if SDK key is valid
-- Ensure platform-specific code is executed on the correct platform
-
+- 确保 Flutter Engine 正确初始化
+- 检查 MethodChannel 名称是否匹配
+- 验证 SDK 密钥是否有效
+- 确保平台特定代码在正确的平台上执行
