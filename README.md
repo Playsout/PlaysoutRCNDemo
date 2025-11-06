@@ -1,4 +1,4 @@
-# Playsout SDK Integration and Usage Guide
+# Playsout SDK Integration and Usage Guide (React Native)
 
 ## Project Overview
 
