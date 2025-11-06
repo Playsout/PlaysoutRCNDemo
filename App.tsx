@@ -27,7 +27,7 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   const handleTestButtonPress = () => {
-    Alert.alert('测试提示', '这是一个测试提示信息');
+    Alert.alert('Test Alert', 'This is a test alert message');
   };
 
   const handleAndroidSDKPress = () => {
@@ -40,15 +40,15 @@ function AppContent() {
           // 调用原生方法打开Flutter页面
           PlaysoutUIModule.showFlutter();
         } else {
-          Alert.alert('错误', 'PlaysoutUIModule未找到，请检查原生模块是否正确注册');
+          Alert.alert('Error', 'PlaysoutUIModule not found, please check if the native module is registered correctly');
           console.error('PlaysoutUIModule未找到');
         }
       } catch (error) {
-        Alert.alert('错误', '打开Flutter页面失败: ' + (error as Error).message);
+        Alert.alert('Error', 'Failed to open Flutter page: ' + (error as Error).message);
         console.error('打开Flutter页面失败:', error);
       }
     } else {
-      Alert.alert('提示', '此功能仅在安卓平台可用');
+      Alert.alert('Notice', 'This feature is only available on Android platform');
     }
   };
 
@@ -61,23 +61,23 @@ function AppContent() {
         const result = await PlaysoutBridge.openPlaysoutController();
         console.log('打开PlaysoutController结果:', result);
       } catch (error) {
-        Alert.alert('错误', '打开PlaysoutController失败：' + String(error));
+        Alert.alert('Error', 'Failed to open PlaysoutController: ' + String(error));
         console.error('打开PlaysoutController失败:', error);
       }
     } else {
-      Alert.alert('提示', '此功能仅在iOS平台可用');
+      Alert.alert('Notice', 'This feature is only available on iOS platform');
     }
   };
 
   const handlePlatformSpecificPress = () => {
     if (Platform.OS === 'android') {
-      // Alert.alert('平台信息', '当前运行在安卓平台');
+      // Alert.alert('Platform Info', 'Currently running on Android platform');
       handleAndroidSDKPress();
     } else if (Platform.OS === 'ios') {
-      // Alert.alert('平台信息', '当前运行在iOS平台');
+      // Alert.alert('Platform Info', 'Currently running on iOS platform');
       handleIOSSDKPress();
     } else {
-      Alert.alert('平台信息', '当前运行在其他平台: ' + Platform.OS);
+      Alert.alert('Platform Info', 'Currently running on other platform: ' + Platform.OS);
     }
   };
 
@@ -85,11 +85,11 @@ function AppContent() {
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.button} onPress={handleTestButtonPress}>
-          <Text style={styles.buttonText}>测试按钮</Text>
+          <Text style={styles.buttonText}>Test Button</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.button} onPress={handleAndroidSDKPress}>
-          <Text style={styles.buttonText}>安卓SDK</Text>
+          <Text style={styles.buttonText}>Android SDK</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.button} onPress={handleIOSSDKPress}>
@@ -97,7 +97,7 @@ function AppContent() {
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.button} onPress={handlePlatformSpecificPress}>
-          <Text style={styles.buttonText}>平台特定</Text>
+          <Text style={styles.buttonText}>Platform Specific</Text>
         </TouchableOpacity>
       </View>
     </View>

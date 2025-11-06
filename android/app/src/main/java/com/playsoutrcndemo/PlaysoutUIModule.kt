@@ -8,10 +8,10 @@ import android.util.Log
 class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
     private val TAG = "PlaysoutUIModule_aaaaa"
     
-    // 模块名称，在JavaScript端通过NativeModules.PlaysoutUIModule访问
+    // Module name, accessed in JavaScript via NativeModules.PlaysoutUIModule
     override fun getName() = "PlaysoutUIModule"
     
-    // 使用@ReactMethod注解暴露方法给JavaScript调用
+    // Expose method to JavaScript using @ReactMethod annotation
     @ReactMethod
     fun showFlutter() {
         val currentActivity = reactApplicationContext.currentActivity
@@ -21,7 +21,7 @@ class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBase
         }
         
         if (currentActivity is MainActivity) {
-            // 在UI线程中执行
+            // Execute on UI thread
             currentActivity.runOnUiThread {
                 currentActivity.showFlutter()
             }

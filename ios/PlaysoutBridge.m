@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "PlaysoutBridge.h"
-// 导入Flutter相关头文件
+// Import Flutter related headers
 #import <Flutter/Flutter.h>
 
 #import "PlaysoutRCNDemo-Swift.h"
@@ -17,14 +17,14 @@
 
 RCT_EXPORT_MODULE();
 
-// 导出新方法：打开PlaysoutController视图并执行show flutterUI方法
+// Export new method: Open PlaysoutController view and execute show flutterUI method
 RCT_EXPORT_METHOD(openPlaysoutController:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   @try {
     NSLog(@"Opening PlaysoutController");
     
-    // 确保在主线程上执行UI操作
+    // Ensure UI operations are executed on the main thread
     dispatch_async(dispatch_get_main_queue(), ^{
-      // 获取当前的根视图控制器
+      // Get the current root view controller
       UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
       
       if (!rootViewController) {
@@ -32,31 +32,31 @@ RCT_EXPORT_METHOD(openPlaysoutController:(RCTPromiseResolveBlock)resolve rejecte
         return;
       }
       
-      // 获取AppDelegate中的FlutterEngine（如果已存在）
-      // 现在可以直接传入nil，PlaysoutController内部会处理
+      // Get the FlutterEngine from AppDelegate (if it exists)
+      // Now you can directly pass nil, PlaysoutController will handle it internally
       PlaysoutController *playsoutController = [[PlaysoutController alloc] initWithEngine:nil channelName:@"com.playsout.minigames" method:@"init" arguments:nil];
       playsoutController.modalPresentationStyle = UIModalPresentationFullScreen;
       
-      // 配置执行show flutterUI的方法调用
+      // Configure method call to execute show flutterUI
       FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"com.playsout.minigames" binaryMessenger:playsoutController.binaryMessenger];
       
-      // 定义视图出现后的完成回调
+      // Define completion callback after view appears
       void (^showFlutterUICallback)(void) = ^{
-        // 视图出现后执行show flutterUI方法
+        // Execute show flutterUI method after view appears
         [channel invokeMethod:@"show" arguments:nil];
-        NSLog(@"执行了show flutterUI方法");
+        NSLog(@"Executed show flutterUI method");
       };
       
-      // 显示视图控制器
+      // Show the view controller
       if ([rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navController = (UINavigationController *)rootViewController;
         [navController setNavigationBarHidden:YES animated:NO];
         [navController pushViewController:playsoutController animated:YES];
         
-        // 使用延迟确保视图完全加载后再执行show方法
+        // Use delay to ensure show method is executed after view is fully loaded
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), showFlutterUICallback);
       } else {
-        // 包装成导航控制器
+        // Wrap in a navigation controller
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:playsoutController];
         navController.modalPresentationStyle = UIModalPresentationFullScreen;
         [rootViewController presentViewController:navController animated:YES completion:showFlutterUICallback];

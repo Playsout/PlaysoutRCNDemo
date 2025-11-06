@@ -7,14 +7,14 @@ import com.facebook.react.uimanager.ViewManager
 
 class PlaysoutPackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        // 注册我们的模块
+        // Register our module
         return listOf(
-            PlaysoutUIModule(reactContext) // 添加PlaysoutUI模块
+            PlaysoutUIModule(reactContext) // Add PlaysoutUI module
         )
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-        // 这个模块不提供UI组件，所以返回空列表
+        // This module doesn't provide UI components, so return empty list
         return emptyList()
     }
 }
