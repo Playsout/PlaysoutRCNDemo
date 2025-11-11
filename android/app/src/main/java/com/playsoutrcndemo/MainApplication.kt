@@ -6,11 +6,11 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
-
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.dart.DartExecutor.DartEntrypoint.createDefault
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.plugin.common.MethodChannel
 import android.util.Log
 
 class MainApplication : Application(), ReactApplication {
@@ -19,6 +19,8 @@ class MainApplication : Application(), ReactApplication {
     private val FLUTTER_ENGINE_ID = "my_flutter_engine"
 
     private val TAG = "MainApplication_aaaaa"
+
+    private val CHANNEL = "com.playsout.minigames"
 
   override val reactHost: ReactHost by lazy {
     getDefaultReactHost(
@@ -58,6 +60,13 @@ class MainApplication : Application(), ReactApplication {
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
+
+        val channel = MethodChannel(flutterEngine.dartExecutor, CHANNEL)
+        val arguments = hashMapOf(
+            "appAdId" to "ca-app-pub-3940256099942544/1712485313", // change them by your admob ad Id
+            "gameAdId" to "ca-app-pub-3940256099942544/1712485313"
+        )
+        channel.invokeMethod("init", arguments)
         
         // Cache FlutterEngine for later use
         FlutterEngineCache.getInstance().put(FLUTTER_ENGINE_ID, flutterEngine)
