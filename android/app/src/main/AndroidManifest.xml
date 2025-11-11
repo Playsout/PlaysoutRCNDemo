@@ -34,7 +34,6 @@
       <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-5786239153559923~6698381072"/><!-- add this line -->
-      <!-- 解决AD_SERVICES_CONFIG冲突 -->
       <property
           android:name="android.adservices.AD_SERVICES_CONFIG"
           android:resource="@xml/gma_ad_services_config"

@@ -30,13 +30,12 @@ import FlutterPluginRegistrant
         @objc init(engine: FlutterEngine?, channelName: String = "", method: String = "", arguments:[String: Any]?) {
 
  
-            //创建FlutterEngine
+            // Create FlutterEngine
             var flutterEngine = FlutterEngine(name: "com.playsout.minigames")
-            // 启动FlutterEngine
-            let initialRoute = "/home?channel=playsout&sdkkey=eyJ2ZXIiOiJ2MSIsImNoYW5uZWwiOiJwbGF5c291dCIsInBhY2thZ2VuYW1lIjoiIiwiZXhwIjoxNzYyOTQwNzU4fS5zaWc"
-            flutterEngine.run(withEntrypoint: "main", initialRoute: initialRoute)
+            // Start FlutterEngine
+            flutterEngine.run()
                 
-            // 注册所有Flutter插件，包括shared_preferences
+            // Register all Flutter plugins, including shared_preferences
             GeneratedPluginRegistrant.register(with: flutterEngine)
 
             
@@ -50,38 +49,38 @@ import FlutterPluginRegistrant
     
                 print("Playsout method:\(call.method) arguments:\(String(describing: call.arguments))")
     
-                // 处理show方法调用，显示Flutter UI
+                // Handle show method call to display Flutter UI
                 if call.method == "show" {
                     strongSelf.showFlutterUI()
-                    result(true) // 返回成功
+                    result(true) // Return success
                 } else {
-                    result(FlutterMethodNotImplemented) // 未实现的方法
+                    result(FlutterMethodNotImplemented) // Method not implemented
                 }
             }
              
         }
-    // 显示Flutter UI的方法
+    // Method to display Flutter UI
     private func showFlutterUI() {
-        print("📱 执行showFlutterUI方法，显示Flutter界面")
+        print("📱 Executing showFlutterUI method, displaying Flutter interface")
         
        
         
-        // 创建参数字典
+        // Create arguments dictionary
         let arguments: [String: String] = [
             "appAdId": "ca-app-pub-3940256099942544/1712485313",
             "gameAdId": "ca-app-pub-3940256099942544/1712485313"
         ]
         
-        // 确保视图在前台并可见
+        // Ensure view is in foreground and visible
         self.view.isHidden = false
         self.view.alpha = 1.0
         
-        // 可以添加一些动画效果
+        // Can add some animation effects
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
         
-        // 如果需要，可以发送通知给Flutter端，通知其UI已准备就绪
+        // If needed, can send notification to Flutter side that UI is ready
         // let messageChannel = FlutterMethodChannel(name: "com.playsout.minigames", binaryMessenger: self.binaryMessenger)
 //        messageChannel.invokeMethod("flutterUIReady", arguments: arguments)
     }

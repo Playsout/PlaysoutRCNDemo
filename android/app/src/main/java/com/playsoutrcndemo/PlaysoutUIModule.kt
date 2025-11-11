@@ -39,7 +39,7 @@ class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBase
         }
         
         if (currentActivity is MainActivity) {
-            // 在UI线程中执行
+            // Execute on UI thread
             currentActivity.runOnUiThread {
                 currentActivity.hideFlutter()
             }

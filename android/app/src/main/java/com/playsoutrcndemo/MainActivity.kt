@@ -14,11 +14,11 @@ import io.flutter.embedding.android.FlutterView
 import android.util.Log 
 
 class MainActivity : ReactActivity() {
-  // Flutter引擎ID，用于缓存和重用Flutter引擎
+  // Flutter engine ID for caching and reusing Flutter engine
     private val FLUTTER_ENGINE_ID = "my_flutter_engine"
-    // FlutterFragment实例
+    // FlutterFragment instance
     private var flutterFragment: FlutterFragment? = null
-    // 是否显示Flutter视图
+    // Whether Flutter view is showing
     private var showingFlutter = false
 
     private val TAG = "MainActivity"
@@ -36,14 +36,14 @@ class MainActivity : ReactActivity() {
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
-// 添加Fragment生命周期监听器
+// Add Fragment lifecycle listener
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     Log.d(TAG, "Activity created, FlutterEngine should be initialized by Application")
     
-    // 添加Fragment生命周期监听器
+    // Add Fragment lifecycle listener
     supportFragmentManager.addOnBackStackChangedListener {
-        // 检查回退栈，如果为空，说明FlutterFragment已被移除
+        // Check back stack, if empty, FlutterFragment has been removed
         if (supportFragmentManager.backStackEntryCount == 0) {
             Log.d(TAG, "FlutterFragment removed from back stack")
             showingFlutter = false
@@ -52,13 +52,13 @@ override fun onCreate(savedInstanceState: Bundle?) {
     }
 }
 
-// 修改showFlutter方法，确保每次都能正确显示FlutterFragment
+// Modify showFlutter method to ensure FlutterFragment is displayed correctly each time
 fun showFlutter() {
     Log.d(TAG, "showFlutter called, showingFlutter: $showingFlutter")
     
     try {
-        // 无论showingFlutter状态如何，都创建新的Fragment
-        // 先检查是否已存在Fragment，如果存在则移除
+        // Create new Fragment regardless of showingFlutter state
+        // First check if Fragment exists, remove if present
         if (flutterFragment != null) {
             val existingTransaction = supportFragmentManager.beginTransaction()
             existingTransaction.remove(flutterFragment!!)
@@ -95,12 +95,12 @@ fun handleBackPress(): Boolean {
 }
 
     /**
-     * 隐藏Flutter视图，返回React Native视图
-     * 这个方法可以通过React Native的原生模块调用
+     * Hide Flutter view and return to React Native view
+     * This method can be called from React Native native module
      */
     fun hideFlutter() {
         if (showingFlutter && flutterFragment != null) {
-            // 移除FlutterFragment
+            // Remove FlutterFragment
             supportFragmentManager
                 .beginTransaction()
                 .remove(flutterFragment!!)
@@ -114,7 +114,7 @@ fun handleBackPress(): Boolean {
     override fun onDestroy() {
         super.onDestroy()
         
-        // 清理缓存的Flutter引擎
+        // Clean up cached Flutter engine
         FlutterEngineCache.getInstance().remove(FLUTTER_ENGINE_ID)
     }
 }

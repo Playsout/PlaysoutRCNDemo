@@ -32,20 +32,20 @@ function AppContent() {
 
   const handleAndroidSDKPress = () => {
     if (Platform.OS === 'android') {
-      // 这里应该是打开安卓平台SDK页面的逻辑
-      // Alert.alert('安卓SDK', '正在打开安卓平台SDK页面');
+      // This should be the logic to open Android platform SDK page
+      // Alert.alert('Android SDK', 'Opening Android platform SDK page');
       try {
-        // 检查PlaysoutUIModule是否存在
+        // Check if PlaysoutUIModule exists
         if (PlaysoutUIModule) {
-          // 调用原生方法打开Flutter页面
+          // Call native method to open Flutter page
           PlaysoutUIModule.showFlutter();
         } else {
           Alert.alert('Error', 'PlaysoutUIModule not found, please check if the native module is registered correctly');
-          console.error('PlaysoutUIModule未找到');
+          console.error('PlaysoutUIModule not found');
         }
       } catch (error) {
         Alert.alert('Error', 'Failed to open Flutter page: ' + (error as Error).message);
-        console.error('打开Flutter页面失败:', error);
+        console.error('Failed to open Flutter page:', error);
       }
     } else {
       Alert.alert('Notice', 'This feature is only available on Android platform');
@@ -54,15 +54,15 @@ function AppContent() {
 
   const handleIOSSDKPress = async () => {
     if (Platform.OS === 'ios') {
-      // 这里应该是打开iOS平台SDK页面的逻辑
-      // Alert.alert('iOS SDK', '正在打开iOS平台SDK页面');
+      // This should be the logic to open iOS platform SDK page
+      // Alert.alert('iOS SDK', 'Opening iOS platform SDK page');
       try {
-        // 调用原生模块的openPlaysoutController方法
+        // Call native module's openPlaysoutController method
         const result = await PlaysoutBridge.openPlaysoutController();
-        console.log('打开PlaysoutController结果:', result);
+        console.log('Opening PlaysoutController result:', result);
       } catch (error) {
         Alert.alert('Error', 'Failed to open PlaysoutController: ' + String(error));
-        console.error('打开PlaysoutController失败:', error);
+        console.error('Failed to open PlaysoutController:', error);
       }
     } else {
       Alert.alert('Notice', 'This feature is only available on iOS platform');

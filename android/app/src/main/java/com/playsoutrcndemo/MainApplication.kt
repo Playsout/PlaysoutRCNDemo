@@ -15,7 +15,7 @@ import android.util.Log
 
 class MainApplication : Application(), ReactApplication {
 
-  // Flutter引擎ID，用于缓存和重用
+  // Flutter engine ID for caching and reuse
     private val FLUTTER_ENGINE_ID = "my_flutter_engine"
 
     private val TAG = "MainApplication_aaaaa"
@@ -27,7 +27,7 @@ class MainApplication : Application(), ReactApplication {
         PackageList(this).packages.apply {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // add(MyReactNativePackage())
-          add(PlaysoutPackage()) // 添加PlaysoutPackage
+          add(PlaysoutPackage()) // Add PlaysoutPackage
         },
     )
   }
@@ -36,30 +36,30 @@ class MainApplication : Application(), ReactApplication {
     super.onCreate()
     loadReactNative(this)
 
-    // 在Application启动时初始化FlutterEngine
+    // Initialize FlutterEngine when Application starts
         initFlutterEngine()
   }
 
     /**
-     * 初始化FlutterEngine并设置初始路由
+     * Initialize FlutterEngine and set initial route
      */
     private fun initFlutterEngine() {
     Log.d(TAG, "Initializing FlutterEngine")
     try {
-        // 创建FlutterEngine实例
+        // Create FlutterEngine instance
         val flutterEngine = FlutterEngine(this)
         
-        // 统一初始路由参数
+        // Unified initial route parameters
         val initialRoute = "/home?channel=playsout&sdkkey=eyJ2ZXIiOiJ2MSIsImNoYW5uZWwiOiJwbGF5c291dCIsInBhY2thZ2VuYW1lIjoiIiwiZXhwIjoxNzY0MTI0NDc3fS5zaWc"
         Log.d(TAG, "Set initial route: $initialRoute")
         flutterEngine.navigationChannel.setInitialRoute(initialRoute)
         
-        // 执行Flutter入口点
+        // Execute Flutter entry point
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
         
-        // 将FlutterEngine缓存起来，供后续使用
+        // Cache FlutterEngine for later use
         FlutterEngineCache.getInstance().put(FLUTTER_ENGINE_ID, flutterEngine)
         Log.d(TAG, "FlutterEngine cached with ID: $FLUTTER_ENGINE_ID")
     } catch (e: Exception) {
@@ -68,14 +68,14 @@ class MainApplication : Application(), ReactApplication {
 }
 
     /**
-     * 获取缓存的FlutterEngine
-     * 可以在其他组件中通过MainApplication.getInstance().getCachedFlutterEngine()获取
+     * Get cached FlutterEngine
+     * Can be obtained in other components through MainApplication.getInstance().getCachedFlutterEngine()
      */
     fun getCachedFlutterEngine(): FlutterEngine? {
         return FlutterEngineCache.getInstance().get(FLUTTER_ENGINE_ID)
     }
 
-    // 单例模式获取Application实例（可选）
+    // Get Application instance with singleton pattern (optional)
     companion object {
         private var instance: MainApplication? = null
 
