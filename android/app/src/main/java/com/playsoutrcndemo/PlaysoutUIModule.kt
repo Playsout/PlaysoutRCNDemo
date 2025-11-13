@@ -6,7 +6,7 @@ import com.facebook.react.bridge.ReactMethod
 import android.util.Log
 
 class PlaysoutUIModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
-    private val TAG = "PlaysoutUIModule_aaaaa"
+    private val TAG = "PlaysoutUIModule"
     
     // Module name, accessed in JavaScript via NativeModules.PlaysoutUIModule
     override fun getName() = "PlaysoutUIModule"

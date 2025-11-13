@@ -18,7 +18,7 @@ class MainApplication : Application(), ReactApplication {
   // Flutter engine ID for caching and reuse
     private val FLUTTER_ENGINE_ID = "my_flutter_engine"
 
-    private val TAG = "MainApplication_aaaaa"
+    private val TAG = "MainApplication"
 
     private val CHANNEL = "com.playsout.minigames"
 
