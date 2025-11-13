@@ -63,17 +63,17 @@ fun showFlutter() {
             val existingTransaction = supportFragmentManager.beginTransaction()
             existingTransaction.remove(flutterFragment!!)
             existingTransaction.commitAllowingStateLoss()
-            supportFragmentManager.executePendingTransactions() // 立即执行事务
+            supportFragmentManager.executePendingTransactions() // Execute pending transactions immediately
         }
         
-        // 创建新的FlutterFragment实例
+        // Create a new FlutterFragment instance
         flutterFragment = FlutterFragment.withCachedEngine(FLUTTER_ENGINE_ID).build()
         Log.d(TAG, "FlutterFragment created with cached engine")
         
-        // 添加新Fragment
+        // Add new Fragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(android.R.id.content, flutterFragment!!)
-        transaction.addToBackStack(null) // 添加到回退栈
+        transaction.addToBackStack(null) // Add to back stack
         transaction.commitAllowingStateLoss()
         
         showingFlutter = true
@@ -84,10 +84,9 @@ fun showFlutter() {
     }
 }
 
-// 也可以添加一个显式的返回按钮处理方法
+// Can also add an explicit back button handling method
 fun handleBackPress(): Boolean {
     if (showingFlutter) {
-        // 如果显示着Flutter页面，先隐藏它
         hideFlutter()
         return true
     }
